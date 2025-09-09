@@ -1,24 +1,23 @@
 import { useState } from 'react'
-import { chatApi } from '../features/chat/api/chatApi'
+import { useChatStore } from '../features/chat/store/chatStore';
 
 export default function App() {
   const [message, setMessage] = useState<string>('')
-  const [answer, setAnswer] = useState<string[]>([])
+  const { messages, loading, error, send } = useChatStore();
 
-  const sendMessage = async (message: string) => {
+  const sendMessage = (message: string) => {
+    send(message)
     setMessage('')
-    setAnswer(prev => [...prev, message])
-    const response = await chatApi.send({ message })
-    setAnswer(prev => [...prev, response.result])
   }
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', padding: 24 }}>
-      {answer.map((a, index) => (
-        <p key={index}>{a}</p>
+      {messages.map((a, index) => (
+        <p key={index}>{a.role === 'user' ? 'You: ' : 'Assistant: '}{a.message}</p>
       ))}
       <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendMessage(message)} />
-      <button onClick={() => sendMessage(message)}>Answer</button>
+      <button onClick={() => sendMessage(message)} disabled={loading}>Answer</button>
+      {error && <p>{error}</p>}
     </div>
   )
 }

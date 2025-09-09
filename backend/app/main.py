@@ -38,7 +38,7 @@ name = "Kirill Galkin"
 
 
 class Message(BaseModel):
-  message: str
+  content: str
 
 class History(BaseModel):
   history: list[dict]
@@ -58,13 +58,13 @@ system_prompt += f"With this context, please chat with the user, always staying 
 
 @app.post("/api/message")
 def message(payload: Message):
-  messages = [{"role": "system", "content": system_prompt}] + history + [{"role": "user", "content": payload.message}]
+  messages = [{"role": "system", "content": system_prompt}] + history + [{"role": "user", "content": payload.content}]
   response = openai.chat.completions.create(
       model="gpt-4o-mini",
       messages=messages
   )
 
   response = response.choices[0].message.content
-  history.append({'role': 'user', 'content': payload.message})
+  history.append({'role': 'user', 'content': payload.content})
   history.append({'role': 'assistant', 'content': response})
   return {"result": response}
