@@ -27,7 +27,7 @@ export const useChatStore = create<State & Actions>((set, get) => ({
     set({ loading: true, error: null })
     try {
       const response = await chatApi.send({ content: trimmed})
-      set({ messages: [...get().messages, {id: id + 1, message: response.result, role: 'agent'}] })
+      set({ messages: [...get().messages, {id: id + 1, message: response.content, role: response.role}] })
     } catch (error) {
       set({ error: error as string }) 
     } finally {

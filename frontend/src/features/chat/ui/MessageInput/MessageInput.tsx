@@ -22,7 +22,7 @@ const MessageInput = ({ onSend, loading }: Props) => {
   return (
     <div style={{ display: 'flex', gap: 20, width: '100%', justifyContent: 'center' }}>
       <MessageField value={value} onChange={(e) => setValue(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} ref={ref} />
-      <Button onClick={handleSend} disabled={loading}>Answer</Button>
+      <Button onClick={handleSend} disabled={loading}>Send</Button>
     </div>
   )
 }
