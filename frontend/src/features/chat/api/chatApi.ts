@@ -7,14 +7,14 @@ export interface Message {
 }
 
 export interface MessageCreate {
-  content: string;
+  content: string
 }
 
 export interface MessageResponse {
-content: string;
-created_at: string;
-id: number;
-role: 'assistant' | 'user';
+content: string
+created_at: string
+id: number
+role: 'assistant' | 'user'
 }
 
 export const chatApi = {

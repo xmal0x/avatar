@@ -1,22 +1,22 @@
-import { useRef, useState } from "react";
-import Button from "../Button/Button";
-import MessageField from "../MessageField/MessageField";
+import { useRef, useState } from "react"
+import Button from "../Button/Button"
+import MessageField from "../MessageField/MessageField"
 
 interface Props {
-  onSend: (message: string) => void;
-  loading: boolean;
+  onSend: (message: string) => void
+  loading: boolean
 }
 
 const MessageInput = ({ onSend, loading }: Props) => {
-  const [value, setValue] = useState('');
-  const ref = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState('')
+  const ref = useRef<HTMLInputElement>(null)
 
   const handleSend = () => {
-    const trimmed = value.trim();
-    if (!trimmed) return;
-    onSend(trimmed);
-    setValue('');
-    ref.current?.focus();
+    const trimmed = value.trim()
+    if (!trimmed) return
+    onSend(trimmed)
+    setValue('')
+    ref.current?.focus()
   }
   
   return (

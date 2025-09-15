@@ -1,5 +1,5 @@
 
-import ChatPage from '../features/chat/ui/ChatPage/ChatPage';
+import ChatPage from '../features/chat/ui/ChatPage/ChatPage'
 
 const App = () => <ChatPage />
 
