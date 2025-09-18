@@ -2,6 +2,12 @@
 
 An AI-powered personal avatar chat application that allows visitors to interact with a virtual representation of a professional Full-Stack Developer. The avatar responds as "John Doe" using AI, drawing from a comprehensive CV and personal biography to provide authentic, engaging conversations.
 
+## 📸 Screenshots
+
+![Chat Interface](./screenshot.png)
+*Main chat interface showing conversation with the AI avatar*
+
+
 ## 🚀 Features
 
 - **AI-Powered Chat Interface**: Interactive chat with a virtual avatar using OpenAI's GPT models
@@ -56,7 +62,7 @@ An AI-powered personal avatar chat application that allows visitors to interact 
 
 4. **Start the application**
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 ## 🚀 Usage
