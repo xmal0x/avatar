@@ -21,7 +21,7 @@ services:
     env_file: .env
     environment:
       - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
-      - CHOKIDAR_USEPOLLING=true   # помогает HMR на Docker Desktop/WSL
+      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./frontend:/app
     ports:
