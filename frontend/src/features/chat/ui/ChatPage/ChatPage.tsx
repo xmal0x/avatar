@@ -8,7 +8,7 @@ export default function ChatPage() {
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-      <MessageList messages={messages} />
+      <MessageList messages={messages} loading={loading} />
       <MessageInput onSend={send} loading={loading} />
       {error && <p>{error}</p>}
     </div>

@@ -17,5 +17,4 @@ async def list_messages(chat: ChatService = Depends(get_chat_service)) -> Histor
 
 @router.post("", response_model=Message, status_code=status.HTTP_201_CREATED)
 async def send_message(payload: MessageIn, chat: ChatService = Depends(get_chat_service)) -> Message:
-    print('payload', payload)
     return await chat.post_and_reply(payload)

@@ -3,14 +3,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     app_name: str = "Avatar Chat API"
-    name: str = "Kirill Galkin"
+    name: str = "John Doe"
 
     openai_api_key: str
     openai_model: str = "gpt-4o-mini"
 
     history_max: int = 200
 
-    assets_pdf: str = "assets/CV_Galkin.pdf"
+    assets_pdf: str = "assets/CV.pdf"
     assets_summary: str = "assets/summary.txt"
 
     # CORS for dev

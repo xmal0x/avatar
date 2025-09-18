@@ -4,9 +4,10 @@ import Message from "../Message/Message"
 
 interface Props {
   messages: MessageInterface[]
+  loading: boolean
 }
 
-const MessageList = ({ messages }: Props) => {
+const MessageList = ({ messages, loading }: Props) => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const MessageList = ({ messages }: Props) => {
         <Message key={msg.id} message={msg} />
       ))}
       <div ref={messagesEndRef} />
+      {loading && <div style={{ opacity: 0.6 }}>thinking...</div>}
     </div>
   )
 }
